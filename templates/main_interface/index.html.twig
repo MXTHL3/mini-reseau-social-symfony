@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Fil d'actualité{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('app') }}
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/all_posts.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/post_form.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Fil d'actualité</h1>
+
+        {% for key, p in posts %}
+            <div class="post">
+                <div class="creator">@{{ p.creatorName }}</div>
+                <div class="date">{{ p.creationDate }}</div>
+                <div class="content">{{ p.content }}</div>
+            </div>
+        {% else %}
+            <p class="no-posts">Aucun post disponible.</p>
+        {% endfor %}
+    </div>
+{% endblock %}

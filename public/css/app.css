@@ -1,0 +1,73 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f8fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+}
+
+.logo {
+    width: 20%;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+.logo:hover {
+    transform: scale(1.2);
+}
+
+.auth-status {
+    position: fixed;
+    bottom: 60px;
+    left: 20px;
+    background-color: #f0f0f0;
+    padding: 10px 20px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.status-text {
+    color: #888;
+    margin-right: 10px;
+}
+
+.to-auth-or-profile, .to-post-creation, .to-logout {
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.to-auth-or-profile {
+    background-color: #003cff;
+}
+
+.to-post-creation {
+    background-color: #6bdf55;
+}
+
+.to-logout {
+    background-color: #ed3636;
+}
+
+.to-auth-or-profile:hover {
+    background-color: #2390ff;
+}
+
+.to-post-creation:hover {
+    background-color: #95f880;
+}
+
+.to-logout:hover {
+    background-color: #ea5353;
+}

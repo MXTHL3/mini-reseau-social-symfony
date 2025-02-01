@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion / Inscription{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/authenticate.css') }}">
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/revertAuthenticate.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+    <div class="auth-container">
+        <div class="auth-form-container">
+            <h2 id="formTitle">Connexion</h2>
+            <form id="authForm" class="auth-form" action="{{ path('app_login') }}" method="post">
+                <div class="form-group" id="registerFields" style="display: none;">
+                    <label for="pseudo">Pseudo</label>
+                    <input type="text" id="pseudo" name="pseudo">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group" id="confirmPasswordField" style="display: none;">
+                    <label for="confirmPassword">Confirmer le mot de passe</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword">
+                </div>
+                <button type="submit" class="auth-button">Se connecter</button>
+            </form>
+            <p class="switch-text">
+                <span id="switchText">Pas encore de compte ?</span>
+                <a href="#" id="switchLink">S'inscrire</a>
+            </p>
+        </div>
+    </div>
+{% endblock %}
