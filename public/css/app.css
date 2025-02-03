@@ -1,3 +1,5 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f5f8fa;
@@ -38,36 +40,4 @@ header {
 .status-text {
     color: #888;
     margin-right: 10px;
-}
-
-.to-auth-or-profile, .to-post-creation, .to-logout {
-    color: white;
-    padding: 5px 10px;
-    border-radius: 15px;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-.to-auth-or-profile {
-    background-color: #003cff;
-}
-
-.to-post-creation {
-    background-color: #6bdf55;
-}
-
-.to-logout {
-    background-color: #ed3636;
-}
-
-.to-auth-or-profile:hover {
-    background-color: #2390ff;
-}
-
-.to-post-creation:hover {
-    background-color: #95f880;
-}
-
-.to-logout:hover {
-    background-color: #ea5353;
 }

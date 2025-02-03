@@ -390,12 +390,10 @@
     <service id="App\Controller\MainInterfaceController" class="App\Controller\MainInterfaceController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
+      <argument type="service" id="request_stack"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.ZyP9f7K.App\Controller\MainInterfaceController"/>
       </call>
-    </service>
-    <service id="App\Controller\PostController" class="App\Controller\PostController" public="true" autowire="true" autoconfigure="true">
-      <tag name="controller.service_arguments"/>
     </service>
     <service id="App\Controller\ProfileController" class="App\Controller\ProfileController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
@@ -454,7 +452,7 @@
     </service>
     <service id="argument_resolver.service" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
       <tag priority="-50" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">controller.argument_value_resolver</tag>
-      <argument type="service" id=".service_locator.BfG96vw"/>
+      <argument type="service" id=".service_locator.6wEvg75"/>
     </service>
     <service id="argument_resolver.default" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">
       <tag priority="-100" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">controller.argument_value_resolver</tag>
@@ -3221,7 +3219,7 @@
     </service>
     <service id="argument_resolver.not_tagged_controller" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
       <tag name="controller.argument_value_resolver" priority="-200"/>
-      <argument type="service" id=".service_locator.BfG96vw"/>
+      <argument type="service" id=".service_locator.6wEvg75"/>
     </service>
     <service id="debug.log_processor" class="Symfony\Bridge\Monolog\Processor\DebugProcessor">
       <tag name="kernel.reset" method="reset"/>
@@ -7826,6 +7824,33 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.cv37jhs" method="withContext"/>
     </service>
+    <service id=".service_locator.q4lVo8g" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="usersRepository" type="service_closure" id="App\Repository\UsersRepository"/>
+        <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+      </argument>
+    </service>
+    <service id=".service_locator.q4lVo8g.App\Controller\MainInterfaceController::postAction()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\MainInterfaceController::postAction()"/>
+      <argument>App\Controller\MainInterfaceController::postAction()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.q4lVo8g" method="withContext"/>
+    </service>
+    <service id=".service_locator.L7ftYGK" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="postsRepository" type="service_closure" id="App\Repository\PostsRepository"/>
+        <argument key="likesRepository" type="service_closure" id="App\Repository\LikesRepository"/>
+        <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+      </argument>
+    </service>
+    <service id=".service_locator.L7ftYGK.App\Controller\MainInterfaceController::deleteAction()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\MainInterfaceController::deleteAction()"/>
+      <argument>App\Controller\MainInterfaceController::deleteAction()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.L7ftYGK" method="withContext"/>
+    </service>
     <service id=".service_locator.cTVgQ4H" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -7838,7 +7863,7 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.cTVgQ4H" method="withContext"/>
     </service>
-    <service id=".service_locator.BfG96vw" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.6wEvg75" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.zHyJIs5.kernel::registerContainerConfiguration()"/>
@@ -7848,12 +7873,16 @@
         <argument key="App\Controller\LoginSignUpController::register" type="service_closure" id=".service_locator.egipcEH.App\Controller\LoginSignUpController::register()"/>
         <argument key="App\Controller\LoginSignUpController::login" type="service_closure" id=".service_locator.xmsm1s9.App\Controller\LoginSignUpController::login()"/>
         <argument key="App\Controller\MainInterfaceController::index" type="service_closure" id=".service_locator.cv37jhs.App\Controller\MainInterfaceController::index()"/>
+        <argument key="App\Controller\MainInterfaceController::postAction" type="service_closure" id=".service_locator.q4lVo8g.App\Controller\MainInterfaceController::postAction()"/>
+        <argument key="App\Controller\MainInterfaceController::deleteAction" type="service_closure" id=".service_locator.L7ftYGK.App\Controller\MainInterfaceController::deleteAction()"/>
         <argument key="App\Controller\SessionController::onKernelController" type="service_closure" id=".service_locator.cTVgQ4H.App\Controller\SessionController::onKernelController()"/>
         <argument key="kernel:registerContainerConfiguration" type="service_closure" id=".service_locator.zHyJIs5.kernel::registerContainerConfiguration()"/>
         <argument key="kernel:loadRoutes" type="service_closure" id=".service_locator.zHyJIs5.kernel::loadRoutes()"/>
         <argument key="App\Controller\LoginSignUpController:register" type="service_closure" id=".service_locator.egipcEH.App\Controller\LoginSignUpController::register()"/>
         <argument key="App\Controller\LoginSignUpController:login" type="service_closure" id=".service_locator.xmsm1s9.App\Controller\LoginSignUpController::login()"/>
         <argument key="App\Controller\MainInterfaceController:index" type="service_closure" id=".service_locator.cv37jhs.App\Controller\MainInterfaceController::index()"/>
+        <argument key="App\Controller\MainInterfaceController:postAction" type="service_closure" id=".service_locator.q4lVo8g.App\Controller\MainInterfaceController::postAction()"/>
+        <argument key="App\Controller\MainInterfaceController:deleteAction" type="service_closure" id=".service_locator.L7ftYGK.App\Controller\MainInterfaceController::deleteAction()"/>
         <argument key="App\Controller\SessionController:onKernelController" type="service_closure" id=".service_locator.cTVgQ4H.App\Controller\SessionController::onKernelController()"/>
       </argument>
     </service>
@@ -8625,7 +8654,6 @@
           <argument>App\Kernel</argument>
           <argument>App\Controller\LoginSignUpController</argument>
           <argument>App\Controller\MainInterfaceController</argument>
-          <argument>App\Controller\PostController</argument>
           <argument>App\Controller\ProfileController</argument>
           <argument>App\Controller\SessionController</argument>
           <argument>Doctrine\Bundle\DoctrineBundle\Controller\ProfilerController</argument>
@@ -9979,7 +10007,7 @@
     <service id="Symfony\UX\Turbo\Broadcaster\BroadcasterInterface" alias="turbo.broadcaster.action_renderer"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.pRu6x_4" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.BfG96vw"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.6wEvg75"/>
     <service id="doctrine.id_generator_locator" alias=".service_locator.BxSdgVt"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
@@ -10026,6 +10054,8 @@
     <service id=".service_locator.5Vd5JYV" alias=".service_locator.egipcEH"/>
     <service id=".service_locator.TFw0LvP" alias=".service_locator.xmsm1s9"/>
     <service id=".service_locator.JqHTkYR" alias=".service_locator.cv37jhs"/>
+    <service id=".service_locator.uqFaaIf" alias=".service_locator.q4lVo8g"/>
+    <service id=".service_locator.g2RAHLz" alias=".service_locator.L7ftYGK"/>
     <service id=".service_locator.Wk0sHBH" alias=".service_locator.cTVgQ4H"/>
     <service id=".service_locator.9nvaCmp" alias=".service_locator.ZyP9f7K"/>
   </services>

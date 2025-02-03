@@ -13,11 +13,11 @@ return [[
         'app' => [
             'js' => [
                 '/build/runtime.js',
-                '/build/vendors-node_modules_react_jsx-runtime_js-node_modules_core-js_modules_es_array_concat_js-nod-ec0330.js',
+                '/build/vendors-node_modules_bootstrap_dist_js_bootstrap_bundle_min_js-node_modules_bootstrap_dist_cs-f20b8b.js',
                 '/build/app.js',
             ],
             'css' => [
-                '/build/app.css',
+                '/build/vendors-node_modules_bootstrap_dist_js_bootstrap_bundle_min_js-node_modules_bootstrap_dist_cs-f20b8b.css',
             ],
         ],
     ],

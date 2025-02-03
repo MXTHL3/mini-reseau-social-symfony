@@ -92,45 +92,19 @@ class __TwigTemplate_01e36bb8df611984b2b73326952a5f79 extends Template
             yield "                <span class=\"status-text\">";
             yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["user_session"]) || array_key_exists("user_session", $context) ? $context["user_session"] : (function () { throw new RuntimeError('Variable "user_session" does not exist.', 25, $this->source); })()), "user_name", [], "any", false, false, false, 25), "html", null, true);
             yield "</span>
-                <a href=\"/profile\" class=\"to-auth-or-profile\">Profil</a>
-                <a href=\"#\" id=\"showPostCreation\" class=\"to-post-creation\">Nouveau post</a>
-                <a href=\"/logout\" class=\"to-logout\">Se déconnecter</a>
+                <a href=\"/profile\" class=\"btn btn-primary\">Profil</a>
+                <a href=\"/\" id=\"showPostCreation\" class=\"btn btn-success\">Nouveau post</a>
+                <a href=\"/logout\" class=\"btn btn-danger\">Se déconnecter</a>
             ";
         } else {
             // line 30
             yield "                <span class=\"status-text\">Non-connecté</span>
-                <a href=\"/portal\" class=\"to-auth-or-profile\">Authentification</a>
+                <a href=\"/portal\" class=\"btn btn-primary\">Authentification</a>
             ";
         }
         // line 33
         yield "        </div>
-        ";
-        // line 34
-        if ((CoreExtension::getAttribute($this->env, $this->source, (isset($context["user_session"]) || array_key_exists("user_session", $context) ? $context["user_session"] : (function () { throw new RuntimeError('Variable "user_session" does not exist.', 34, $this->source); })()), "user_id", [], "any", false, false, false, 34) && CoreExtension::getAttribute($this->env, $this->source, (isset($context["user_session"]) || array_key_exists("user_session", $context) ? $context["user_session"] : (function () { throw new RuntimeError('Variable "user_session" does not exist.', 34, $this->source); })()), "user_name", [], "any", false, false, false, 34))) {
-            // line 35
-            yield "            <div id=\"postContainer\" class=\"post-container\" style=\"display: none;\">
-                <form action=\"";
-            // line 36
-            yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
-            yield "\">
-                    <div class=\"post-form-group\">
-                        <label for=\"post-title\">Titre</label>
-                        <input id=\"post-title\" name=\"post-title\"/>
-                    </div>
-                    <div class=\"post-form-group\">
-                        <textarea id=\"post-text\" name=\"post-text\"></textarea>
-                    </div>
-                    <div class=\"post-form-group\">
-                        <label for=\"post-tag\">Tag</label>
-                        <input id=\"post-tag\" name=\"post-tag\"/>
-                    </div>
-                    <button type=\"submit\" class=\"post-submit\">Poster</button>
-                </form>
-            </div>
-        ";
-        }
-        // line 52
-        yield "    </body>
+    </body>
 </html>
 ";
         
@@ -182,10 +156,10 @@ class __TwigTemplate_01e36bb8df611984b2b73326952a5f79 extends Template
         yield "            <link rel=\"stylesheet\" href=\"";
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("css/app.css"), "html", null, true);
         yield "\">
-            <link rel=\"stylesheet\" href=\"";
+            ";
         // line 9
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("css/post_form.css"), "html", null, true);
-        yield "\">
+        yield $this->extensions['Symfony\WebpackEncoreBundle\Twig\EntryFilesTwigExtension']->renderWebpackLinkTags("app");
+        yield "
         ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -210,9 +184,9 @@ class __TwigTemplate_01e36bb8df611984b2b73326952a5f79 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
         // line 13
-        yield "            <script src=\"";
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/showPostCreation.js"), "html", null, true);
-        yield "\"></script>
+        yield "            ";
+        yield $this->extensions['Symfony\WebpackEncoreBundle\Twig\EntryFilesTwigExtension']->renderWebpackLinkTags("app");
+        yield "
         ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -266,7 +240,7 @@ class __TwigTemplate_01e36bb8df611984b2b73326952a5f79 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  227 => 22,  213 => 13,  200 => 12,  187 => 9,  182 => 8,  169 => 7,  146 => 5,  133 => 52,  114 => 36,  111 => 35,  109 => 34,  106 => 33,  101 => 30,  92 => 25,  90 => 24,  87 => 23,  85 => 22,  79 => 19,  75 => 18,  70 => 15,  68 => 12,  65 => 11,  63 => 7,  58 => 5,  52 => 1,);
+        return array (  201 => 22,  187 => 13,  174 => 12,  161 => 9,  156 => 8,  143 => 7,  120 => 5,  106 => 33,  101 => 30,  92 => 25,  90 => 24,  87 => 23,  85 => 22,  79 => 19,  75 => 18,  70 => 15,  68 => 12,  65 => 11,  63 => 7,  58 => 5,  52 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -279,11 +253,11 @@ class __TwigTemplate_01e36bb8df611984b2b73326952a5f79 extends Template
         <link rel=\"icon\" href=\"data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>\">
         {% block stylesheets %}
             <link rel=\"stylesheet\" href=\"{{ asset('css/app.css') }}\">
-            <link rel=\"stylesheet\" href=\"{{ asset('css/post_form.css') }}\">
+            {{ encore_entry_link_tags('app') }}
         {% endblock %}
 
         {% block javascripts %}
-            <script src=\"{{ asset('js/showPostCreation.js') }}\"></script>
+            {{ encore_entry_link_tags('app') }}
         {% endblock %}
     </head>
     <body>
@@ -296,32 +270,14 @@ class __TwigTemplate_01e36bb8df611984b2b73326952a5f79 extends Template
         <div class=\"auth-status\">
             {% if user_session.user_id and user_session.user_name %}
                 <span class=\"status-text\">{{ user_session.user_name }}</span>
-                <a href=\"/profile\" class=\"to-auth-or-profile\">Profil</a>
-                <a href=\"#\" id=\"showPostCreation\" class=\"to-post-creation\">Nouveau post</a>
-                <a href=\"/logout\" class=\"to-logout\">Se déconnecter</a>
+                <a href=\"/profile\" class=\"btn btn-primary\">Profil</a>
+                <a href=\"/\" id=\"showPostCreation\" class=\"btn btn-success\">Nouveau post</a>
+                <a href=\"/logout\" class=\"btn btn-danger\">Se déconnecter</a>
             {% else %}
                 <span class=\"status-text\">Non-connecté</span>
-                <a href=\"/portal\" class=\"to-auth-or-profile\">Authentification</a>
+                <a href=\"/portal\" class=\"btn btn-primary\">Authentification</a>
             {% endif %}
         </div>
-        {% if user_session.user_id and user_session.user_name %}
-            <div id=\"postContainer\" class=\"post-container\" style=\"display: none;\">
-                <form action=\"{{ path('app_login') }}\">
-                    <div class=\"post-form-group\">
-                        <label for=\"post-title\">Titre</label>
-                        <input id=\"post-title\" name=\"post-title\"/>
-                    </div>
-                    <div class=\"post-form-group\">
-                        <textarea id=\"post-text\" name=\"post-text\"></textarea>
-                    </div>
-                    <div class=\"post-form-group\">
-                        <label for=\"post-tag\">Tag</label>
-                        <input id=\"post-tag\" name=\"post-tag\"/>
-                    </div>
-                    <button type=\"submit\" class=\"post-submit\">Poster</button>
-                </form>
-            </div>
-        {% endif %}
     </body>
 </html>
 ", "base.html.twig", "C:\\Users\\Maxime\\symfonyPjs\\pj1\\templates\\base.html.twig");

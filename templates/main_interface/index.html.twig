@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="{{ asset('css/post_form.css') }}">
 {% endblock %}
 
+{% block javascripts %}
+    <script src="{{ asset('js/showPostCreation.js') }}"></script>
+{% endblock %}
+
 {% block body %}
     <div class="container">
         <h1>Fil d'actualité</h1>
@@ -18,9 +22,30 @@
                 <div class="creator">@{{ p.creatorName }}</div>
                 <div class="date">{{ p.creationDate }}</div>
                 <div class="content">{{ p.content }}</div>
+                {% if p.creatorId == user_session.user_id %}
+                    <form action="{{ path('app_delete_action', { 'id': p.postId }) }}" method="POST" style="display: inline;">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('delete' ~ p.postId) }}">
+                        <button type="submit" class="btn btn-danger btn-sm">Supprimer</button>
+                    </form>
+                {% endif %}
             </div>
         {% else %}
             <p class="no-posts">Aucun post disponible.</p>
         {% endfor %}
     </div>
+    {% if user_session.user_id and user_session.user_name %}
+        <div id="postContainer" class="post-container" style="display: none;">
+            <form action="{{ path('app_post_interface_action') }}" method="POST">
+                <div class="post-form-group">
+                    <textarea id="postText" name="postText"></textarea>
+                </div>
+                <div class="post-form-group">
+                    <label for="postTag">Tag</label>
+                    <input id="postTag" name="postTag"/>
+                </div>
+                <button type="submit" class="post-submit">Poster</button>
+            </form>
+        </div>
+    {% endif %}
 {% endblock %}
