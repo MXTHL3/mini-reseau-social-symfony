@@ -23,7 +23,7 @@ class MainInterfaceController extends AbstractController
     }
 
     #[Route('/', name: 'app_main_interface')]
-    public function index(PostsRepository $postsRepository): Response
+    public function mainPage(PostsRepository $postsRepository): Response
     {
         $allPostsArray = $postsRepository->findAll();
 

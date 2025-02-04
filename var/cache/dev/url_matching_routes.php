@@ -19,9 +19,8 @@ return [
         '/register' => [[['_route' => 'app_register', '_controller' => 'App\\Controller\\LoginSignUpController::register'], null, ['POST' => 0], null, false, false, null]],
         '/login' => [[['_route' => 'app_login', '_controller' => 'App\\Controller\\LoginSignUpController::login'], null, ['POST' => 0], null, false, false, null]],
         '/logout' => [[['_route' => 'app_logout', '_controller' => 'App\\Controller\\LoginSignUpController::logout'], null, null, null, false, false, null]],
-        '/' => [[['_route' => 'app_main_interface', '_controller' => 'App\\Controller\\MainInterfaceController::index'], null, null, null, false, false, null]],
+        '/' => [[['_route' => 'app_main_interface', '_controller' => 'App\\Controller\\MainInterfaceController::mainPage'], null, null, null, false, false, null]],
         '/post_action' => [[['_route' => 'app_post_interface_action', '_controller' => 'App\\Controller\\MainInterfaceController::postAction'], null, ['POST' => 0], null, false, false, null]],
-        '/profile' => [[['_route' => 'app_profile', '_controller' => 'App\\Controller\\ProfileController::index'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'
@@ -44,6 +43,7 @@ return [
                     .')'
                 .')'
                 .'|/delete_action/([^/]++)(*:225)'
+                .'|/profile\\=([^/]++)(*:251)'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -55,8 +55,9 @@ return [
         168 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         181 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         191 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        225 => [
-            [['_route' => 'app_delete_action', '_controller' => 'App\\Controller\\MainInterfaceController::deleteAction'], ['id'], ['POST' => 0], null, false, true, null],
+        225 => [[['_route' => 'app_delete_action', '_controller' => 'App\\Controller\\MainInterfaceController::deleteAction'], ['id'], ['POST' => 0], null, false, true, null]],
+        251 => [
+            [['_route' => 'app_profile_page', '_controller' => 'App\\Controller\\ProfileController::profilePage'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

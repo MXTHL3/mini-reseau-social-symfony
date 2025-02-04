@@ -22,9 +22,11 @@
         {% block body %}{% endblock %}
         <div class="auth-status">
             {% if user_session.user_id and user_session.user_name %}
-                <span class="status-text">{{ user_session.user_name }}</span>
-                <a href="/profile" class="btn btn-primary">Profil</a>
-                <a href="/" id="showPostCreation" class="btn btn-success">Nouveau post</a>
+                <span class="status-text">@{{ user_session.user_name }}</span>
+                <a href="/profile={{ user_session.user_id }}" class="btn btn-primary">Profil</a>
+                {% if app.request.attributes.get('_route') == 'app_main_interface' %}
+                    <a href="/" id="showPostCreation" class="btn btn-success">Nouveau post</a>
+                {% endif %}
                 <a href="/logout" class="btn btn-danger">Se déconnecter</a>
             {% else %}
                 <span class="status-text">Non-connecté</span>

@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/all_posts.css') }}">
     <link rel="stylesheet" href="{{ asset('css/post_form.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/search.css') }}">
 {% endblock %}
 
 {% block javascripts %}
@@ -48,4 +49,8 @@
             </form>
         </div>
     {% endif %}
+    <div class="search-container">
+        <input type="text" placeholder="Rechercher..." class="search-input">
+        <button type="submit" class="search-button">🔍</button>
+    </div>
 {% endblock %}

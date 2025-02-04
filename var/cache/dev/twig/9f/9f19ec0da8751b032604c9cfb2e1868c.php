@@ -89,20 +89,30 @@ class __TwigTemplate_01e36bb8df611984b2b73326952a5f79 extends Template
         // line 24
         if ((CoreExtension::getAttribute($this->env, $this->source, (isset($context["user_session"]) || array_key_exists("user_session", $context) ? $context["user_session"] : (function () { throw new RuntimeError('Variable "user_session" does not exist.', 24, $this->source); })()), "user_id", [], "any", false, false, false, 24) && CoreExtension::getAttribute($this->env, $this->source, (isset($context["user_session"]) || array_key_exists("user_session", $context) ? $context["user_session"] : (function () { throw new RuntimeError('Variable "user_session" does not exist.', 24, $this->source); })()), "user_name", [], "any", false, false, false, 24))) {
             // line 25
-            yield "                <span class=\"status-text\">";
+            yield "                <span class=\"status-text\">@";
             yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["user_session"]) || array_key_exists("user_session", $context) ? $context["user_session"] : (function () { throw new RuntimeError('Variable "user_session" does not exist.', 25, $this->source); })()), "user_name", [], "any", false, false, false, 25), "html", null, true);
             yield "</span>
-                <a href=\"/profile\" class=\"btn btn-primary\">Profil</a>
-                <a href=\"/\" id=\"showPostCreation\" class=\"btn btn-success\">Nouveau post</a>
-                <a href=\"/logout\" class=\"btn btn-danger\">Se déconnecter</a>
+                <a href=\"/profile=";
+            // line 26
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["user_session"]) || array_key_exists("user_session", $context) ? $context["user_session"] : (function () { throw new RuntimeError('Variable "user_session" does not exist.', 26, $this->source); })()), "user_id", [], "any", false, false, false, 26), "html", null, true);
+            yield "\" class=\"btn btn-primary\">Profil</a>
+                ";
+            // line 27
+            if ((CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 27, $this->source); })()), "request", [], "any", false, false, false, 27), "attributes", [], "any", false, false, false, 27), "get", ["_route"], "method", false, false, false, 27) == "app_main_interface")) {
+                // line 28
+                yield "                    <a href=\"/\" id=\"showPostCreation\" class=\"btn btn-success\">Nouveau post</a>
+                ";
+            }
+            // line 30
+            yield "                <a href=\"/logout\" class=\"btn btn-danger\">Se déconnecter</a>
             ";
         } else {
-            // line 30
+            // line 32
             yield "                <span class=\"status-text\">Non-connecté</span>
                 <a href=\"/portal\" class=\"btn btn-primary\">Authentification</a>
             ";
         }
-        // line 33
+        // line 35
         yield "        </div>
     </body>
 </html>
@@ -240,7 +250,7 @@ class __TwigTemplate_01e36bb8df611984b2b73326952a5f79 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  201 => 22,  187 => 13,  174 => 12,  161 => 9,  156 => 8,  143 => 7,  120 => 5,  106 => 33,  101 => 30,  92 => 25,  90 => 24,  87 => 23,  85 => 22,  79 => 19,  75 => 18,  70 => 15,  68 => 12,  65 => 11,  63 => 7,  58 => 5,  52 => 1,);
+        return array (  211 => 22,  197 => 13,  184 => 12,  171 => 9,  166 => 8,  153 => 7,  130 => 5,  116 => 35,  111 => 32,  107 => 30,  103 => 28,  101 => 27,  97 => 26,  92 => 25,  90 => 24,  87 => 23,  85 => 22,  79 => 19,  75 => 18,  70 => 15,  68 => 12,  65 => 11,  63 => 7,  58 => 5,  52 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -269,9 +279,11 @@ class __TwigTemplate_01e36bb8df611984b2b73326952a5f79 extends Template
         {% block body %}{% endblock %}
         <div class=\"auth-status\">
             {% if user_session.user_id and user_session.user_name %}
-                <span class=\"status-text\">{{ user_session.user_name }}</span>
-                <a href=\"/profile\" class=\"btn btn-primary\">Profil</a>
-                <a href=\"/\" id=\"showPostCreation\" class=\"btn btn-success\">Nouveau post</a>
+                <span class=\"status-text\">@{{ user_session.user_name }}</span>
+                <a href=\"/profile={{ user_session.user_id }}\" class=\"btn btn-primary\">Profil</a>
+                {% if app.request.attributes.get('_route') == 'app_main_interface' %}
+                    <a href=\"/\" id=\"showPostCreation\" class=\"btn btn-success\">Nouveau post</a>
+                {% endif %}
                 <a href=\"/logout\" class=\"btn btn-danger\">Se déconnecter</a>
             {% else %}
                 <span class=\"status-text\">Non-connecté</span>
