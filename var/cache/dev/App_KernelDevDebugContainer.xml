@@ -452,7 +452,7 @@
     </service>
     <service id="argument_resolver.service" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
       <tag priority="-50" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">controller.argument_value_resolver</tag>
-      <argument type="service" id=".service_locator.42QI0Gc"/>
+      <argument type="service" id=".service_locator.OVhKEaZ"/>
     </service>
     <service id="argument_resolver.default" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">
       <tag priority="-100" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">controller.argument_value_resolver</tag>
@@ -3219,7 +3219,7 @@
     </service>
     <service id="argument_resolver.not_tagged_controller" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
       <tag name="controller.argument_value_resolver" priority="-200"/>
-      <argument type="service" id=".service_locator.42QI0Gc"/>
+      <argument type="service" id=".service_locator.OVhKEaZ"/>
     </service>
     <service id="debug.log_processor" class="Symfony\Bridge\Monolog\Processor\DebugProcessor">
       <tag name="kernel.reset" method="reset"/>
@@ -7812,17 +7812,18 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.xmsm1s9" method="withContext"/>
     </service>
-    <service id=".service_locator.cv37jhs" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.tqNeQqu" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="postsRepository" type="service_closure" id="App\Repository\PostsRepository"/>
+        <argument key="likesRepository" type="service_closure" id="App\Repository\LikesRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.cv37jhs.App\Controller\MainInterfaceController::mainPage()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.tqNeQqu.App\Controller\MainInterfaceController::mainPage()" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\MainInterfaceController::mainPage()"/>
       <argument>App\Controller\MainInterfaceController::mainPage()</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.cv37jhs" method="withContext"/>
+      <factory service=".service_locator.tqNeQqu" method="withContext"/>
     </service>
     <service id=".service_locator.q4lVo8g" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
@@ -7851,6 +7852,45 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.L7ftYGK" method="withContext"/>
     </service>
+    <service id=".service_locator.OSIILhK" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="likesRepository" type="service_closure" id="App\Repository\LikesRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.OSIILhK.App\Controller\MainInterfaceController::checkLikeOrUnlike()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\MainInterfaceController::checkLikeOrUnlike()"/>
+      <argument>App\Controller\MainInterfaceController::checkLikeOrUnlike()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.OSIILhK" method="withContext"/>
+    </service>
+    <service id=".service_locator..b4PlKJ" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="postsRepository" type="service_closure" id="App\Repository\PostsRepository"/>
+        <argument key="usersRepository" type="service_closure" id="App\Repository\UsersRepository"/>
+        <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+      </argument>
+    </service>
+    <service id=".service_locator..b4PlKJ.App\Controller\MainInterfaceController::likeAction()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\MainInterfaceController::likeAction()"/>
+      <argument>App\Controller\MainInterfaceController::likeAction()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator..b4PlKJ" method="withContext"/>
+    </service>
+    <service id=".service_locator.0p2rMqe" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="likesRepository" type="service_closure" id="App\Repository\LikesRepository"/>
+        <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+      </argument>
+    </service>
+    <service id=".service_locator.0p2rMqe.App\Controller\MainInterfaceController::unlikeAction()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\MainInterfaceController::unlikeAction()"/>
+      <argument>App\Controller\MainInterfaceController::unlikeAction()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.0p2rMqe" method="withContext"/>
+    </service>
     <service id=".service_locator.WO7jUZw" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -7876,7 +7916,7 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.cTVgQ4H" method="withContext"/>
     </service>
-    <service id=".service_locator.42QI0Gc" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.OVhKEaZ" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.zHyJIs5.kernel::registerContainerConfiguration()"/>
@@ -7885,18 +7925,24 @@
         <argument key="App\Kernel::loadRoutes" type="service_closure" id=".service_locator.zHyJIs5.kernel::loadRoutes()"/>
         <argument key="App\Controller\LoginSignUpController::register" type="service_closure" id=".service_locator.egipcEH.App\Controller\LoginSignUpController::register()"/>
         <argument key="App\Controller\LoginSignUpController::login" type="service_closure" id=".service_locator.xmsm1s9.App\Controller\LoginSignUpController::login()"/>
-        <argument key="App\Controller\MainInterfaceController::mainPage" type="service_closure" id=".service_locator.cv37jhs.App\Controller\MainInterfaceController::mainPage()"/>
+        <argument key="App\Controller\MainInterfaceController::mainPage" type="service_closure" id=".service_locator.tqNeQqu.App\Controller\MainInterfaceController::mainPage()"/>
         <argument key="App\Controller\MainInterfaceController::postAction" type="service_closure" id=".service_locator.q4lVo8g.App\Controller\MainInterfaceController::postAction()"/>
         <argument key="App\Controller\MainInterfaceController::deleteAction" type="service_closure" id=".service_locator.L7ftYGK.App\Controller\MainInterfaceController::deleteAction()"/>
+        <argument key="App\Controller\MainInterfaceController::checkLikeOrUnlike" type="service_closure" id=".service_locator.OSIILhK.App\Controller\MainInterfaceController::checkLikeOrUnlike()"/>
+        <argument key="App\Controller\MainInterfaceController::likeAction" type="service_closure" id=".service_locator..b4PlKJ.App\Controller\MainInterfaceController::likeAction()"/>
+        <argument key="App\Controller\MainInterfaceController::unlikeAction" type="service_closure" id=".service_locator.0p2rMqe.App\Controller\MainInterfaceController::unlikeAction()"/>
         <argument key="App\Controller\ProfileController::profilePage" type="service_closure" id=".service_locator.WO7jUZw.App\Controller\ProfileController::profilePage()"/>
         <argument key="App\Controller\SessionController::onKernelController" type="service_closure" id=".service_locator.cTVgQ4H.App\Controller\SessionController::onKernelController()"/>
         <argument key="kernel:registerContainerConfiguration" type="service_closure" id=".service_locator.zHyJIs5.kernel::registerContainerConfiguration()"/>
         <argument key="kernel:loadRoutes" type="service_closure" id=".service_locator.zHyJIs5.kernel::loadRoutes()"/>
         <argument key="App\Controller\LoginSignUpController:register" type="service_closure" id=".service_locator.egipcEH.App\Controller\LoginSignUpController::register()"/>
         <argument key="App\Controller\LoginSignUpController:login" type="service_closure" id=".service_locator.xmsm1s9.App\Controller\LoginSignUpController::login()"/>
-        <argument key="App\Controller\MainInterfaceController:mainPage" type="service_closure" id=".service_locator.cv37jhs.App\Controller\MainInterfaceController::mainPage()"/>
+        <argument key="App\Controller\MainInterfaceController:mainPage" type="service_closure" id=".service_locator.tqNeQqu.App\Controller\MainInterfaceController::mainPage()"/>
         <argument key="App\Controller\MainInterfaceController:postAction" type="service_closure" id=".service_locator.q4lVo8g.App\Controller\MainInterfaceController::postAction()"/>
         <argument key="App\Controller\MainInterfaceController:deleteAction" type="service_closure" id=".service_locator.L7ftYGK.App\Controller\MainInterfaceController::deleteAction()"/>
+        <argument key="App\Controller\MainInterfaceController:checkLikeOrUnlike" type="service_closure" id=".service_locator.OSIILhK.App\Controller\MainInterfaceController::checkLikeOrUnlike()"/>
+        <argument key="App\Controller\MainInterfaceController:likeAction" type="service_closure" id=".service_locator..b4PlKJ.App\Controller\MainInterfaceController::likeAction()"/>
+        <argument key="App\Controller\MainInterfaceController:unlikeAction" type="service_closure" id=".service_locator.0p2rMqe.App\Controller\MainInterfaceController::unlikeAction()"/>
         <argument key="App\Controller\ProfileController:profilePage" type="service_closure" id=".service_locator.WO7jUZw.App\Controller\ProfileController::profilePage()"/>
         <argument key="App\Controller\SessionController:onKernelController" type="service_closure" id=".service_locator.cTVgQ4H.App\Controller\SessionController::onKernelController()"/>
       </argument>
@@ -10022,7 +10068,7 @@
     <service id="Symfony\UX\Turbo\Broadcaster\BroadcasterInterface" alias="turbo.broadcaster.action_renderer"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.pRu6x_4" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.42QI0Gc"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.OVhKEaZ"/>
     <service id="doctrine.id_generator_locator" alias=".service_locator.BxSdgVt"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
@@ -10068,9 +10114,12 @@
     <service id=".service_locator.n_ENPtW" alias=".service_locator.zHyJIs5"/>
     <service id=".service_locator.5Vd5JYV" alias=".service_locator.egipcEH"/>
     <service id=".service_locator.TFw0LvP" alias=".service_locator.xmsm1s9"/>
-    <service id=".service_locator.JqHTkYR" alias=".service_locator.cv37jhs"/>
+    <service id=".service_locator.ly4fe3T" alias=".service_locator.tqNeQqu"/>
     <service id=".service_locator.uqFaaIf" alias=".service_locator.q4lVo8g"/>
     <service id=".service_locator.g2RAHLz" alias=".service_locator.L7ftYGK"/>
+    <service id=".service_locator.Mx6eQMW" alias=".service_locator.OSIILhK"/>
+    <service id=".service_locator.xhFOZFH" alias=".service_locator..b4PlKJ"/>
+    <service id=".service_locator.O2Brbpn" alias=".service_locator.0p2rMqe"/>
     <service id=".service_locator.tuyClPE" alias=".service_locator.WO7jUZw"/>
     <service id=".service_locator.Wk0sHBH" alias=".service_locator.cTVgQ4H"/>
     <service id=".service_locator.9nvaCmp" alias=".service_locator.ZyP9f7K"/>

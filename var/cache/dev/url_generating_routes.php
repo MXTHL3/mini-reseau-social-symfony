@@ -25,6 +25,9 @@ return [
     'app_main_interface' => [[], ['_controller' => 'App\\Controller\\MainInterfaceController::mainPage'], [], [['text', '/']], [], [], []],
     'app_post_interface_action' => [[], ['_controller' => 'App\\Controller\\MainInterfaceController::postAction'], [], [['text', '/post_action']], [], [], []],
     'app_delete_action' => [['id'], ['_controller' => 'App\\Controller\\MainInterfaceController::deleteAction'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/delete_action']], [], [], []],
+    'app_check_like_or_unlike' => [['id'], ['_controller' => 'App\\Controller\\MainInterfaceController::checkLikeOrUnlike'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/check_like_or_unlike']], [], [], []],
+    'app_like_action' => [['id'], ['_controller' => 'App\\Controller\\MainInterfaceController::likeAction'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/like_action']], [], [], []],
+    'app_unlike_action' => [['id'], ['_controller' => 'App\\Controller\\MainInterfaceController::unlikeAction'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/unlike_action']], [], [], []],
     'app_profile_page' => [['id'], ['_controller' => 'App\\Controller\\ProfileController::profilePage'], [], [['variable', '=', '[^/]++', 'id', true], ['text', '/profile']], [], [], []],
     'App\Controller\LoginSignUpController::index' => [[], ['_controller' => 'App\\Controller\\LoginSignUpController::index'], [], [['text', '/portal']], [], [], []],
     'App\Controller\LoginSignUpController::register' => [[], ['_controller' => 'App\\Controller\\LoginSignUpController::register'], [], [['text', '/register']], [], [], []],
@@ -33,5 +36,8 @@ return [
     'App\Controller\MainInterfaceController::mainPage' => [[], ['_controller' => 'App\\Controller\\MainInterfaceController::mainPage'], [], [['text', '/']], [], [], []],
     'App\Controller\MainInterfaceController::postAction' => [[], ['_controller' => 'App\\Controller\\MainInterfaceController::postAction'], [], [['text', '/post_action']], [], [], []],
     'App\Controller\MainInterfaceController::deleteAction' => [['id'], ['_controller' => 'App\\Controller\\MainInterfaceController::deleteAction'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/delete_action']], [], [], []],
+    'App\Controller\MainInterfaceController::checkLikeOrUnlike' => [['id'], ['_controller' => 'App\\Controller\\MainInterfaceController::checkLikeOrUnlike'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/check_like_or_unlike']], [], [], []],
+    'App\Controller\MainInterfaceController::likeAction' => [['id'], ['_controller' => 'App\\Controller\\MainInterfaceController::likeAction'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/like_action']], [], [], []],
+    'App\Controller\MainInterfaceController::unlikeAction' => [['id'], ['_controller' => 'App\\Controller\\MainInterfaceController::unlikeAction'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/unlike_action']], [], [], []],
     'App\Controller\ProfileController::profilePage' => [['id'], ['_controller' => 'App\\Controller\\ProfileController::profilePage'], [], [['variable', '=', '[^/]++', 'id', true], ['text', '/profile']], [], [], []],
 ];

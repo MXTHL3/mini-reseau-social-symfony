@@ -43,7 +43,10 @@ return [
                     .')'
                 .')'
                 .'|/delete_action/([^/]++)(*:225)'
-                .'|/profile\\=([^/]++)(*:251)'
+                .'|/check_like_or_unlike/([^/]++)(*:263)'
+                .'|/like_action/([^/]++)(*:292)'
+                .'|/unlike_action/([^/]++)(*:323)'
+                .'|/profile\\=([^/]++)(*:349)'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -56,7 +59,10 @@ return [
         181 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         191 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
         225 => [[['_route' => 'app_delete_action', '_controller' => 'App\\Controller\\MainInterfaceController::deleteAction'], ['id'], ['POST' => 0], null, false, true, null]],
-        251 => [
+        263 => [[['_route' => 'app_check_like_or_unlike', '_controller' => 'App\\Controller\\MainInterfaceController::checkLikeOrUnlike'], ['id'], ['POST' => 0], null, false, true, null]],
+        292 => [[['_route' => 'app_like_action', '_controller' => 'App\\Controller\\MainInterfaceController::likeAction'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        323 => [[['_route' => 'app_unlike_action', '_controller' => 'App\\Controller\\MainInterfaceController::unlikeAction'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        349 => [
             [['_route' => 'app_profile_page', '_controller' => 'App\\Controller\\ProfileController::profilePage'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
