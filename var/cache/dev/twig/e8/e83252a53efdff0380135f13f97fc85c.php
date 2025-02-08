@@ -99,11 +99,12 @@ class __TwigTemplate_cc4cc803dd5b4af5d216663859af6eee extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
 
         // line 6
-        yield "    <link rel=\"stylesheet\" href=\"";
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("css/app.css"), "html", null, true);
-        yield "\">
+        yield "    ";
+        yield from $this->yieldParentBlock("stylesheets", $context, $blocks);
+        yield "
+    <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css\" rel=\"stylesheet\">
     <link rel=\"stylesheet\" href=\"";
-        // line 7
+        // line 8
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("css/authenticate.css"), "html", null, true);
         yield "\">
 ";
@@ -116,7 +117,7 @@ class __TwigTemplate_cc4cc803dd5b4af5d216663859af6eee extends Template
         yield from [];
     }
 
-    // line 10
+    // line 11
     /**
      * @return iterable<null|scalar|\Stringable>
      */
@@ -129,12 +130,13 @@ class __TwigTemplate_cc4cc803dd5b4af5d216663859af6eee extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 11
+        // line 12
         yield "    ";
         yield from $this->yieldParentBlock("javascripts", $context, $blocks);
         yield "
+    <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js\"></script>
     <script src=\"";
-        // line 12
+        // line 14
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/revertAuthenticate.js"), "html", null, true);
         yield "\"></script>
 ";
@@ -147,7 +149,7 @@ class __TwigTemplate_cc4cc803dd5b4af5d216663859af6eee extends Template
         yield from [];
     }
 
-    // line 15
+    // line 17
     /**
      * @return iterable<null|scalar|\Stringable>
      */
@@ -160,36 +162,44 @@ class __TwigTemplate_cc4cc803dd5b4af5d216663859af6eee extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 16
-        yield "    <div class=\"auth-container\">
-        <div class=\"auth-form-container\">
-            <h2 id=\"formTitle\">Connexion</h2>
-            <form id=\"authForm\" class=\"auth-form\" action=\"";
-        // line 19
+        // line 18
+        yield "    <div class=\"container\">
+        <div class=\"row justify-content-center align-items-center min-vh-100\">
+            <div class=\"col-md-6 col-lg-4\">
+                <div class=\"card shadow\">
+                    <div class=\"card-body\">
+                        <h2 class=\"card-title text-center mb-4\" id=\"formTitle\">Connexion</h2>
+                        <form id=\"authForm\" action=\"";
+        // line 24
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
         yield "\" method=\"post\">
-                <div class=\"form-group\" id=\"registerFields\" style=\"display: none;\">
-                    <label for=\"pseudo\">Pseudo</label>
-                    <input type=\"text\" id=\"pseudo\" name=\"pseudo\">
+                            <div class=\"mb-3\" id=\"registerFields\" style=\"display: none;\">
+                                <label for=\"pseudo\" class=\"form-label\">Pseudo</label>
+                                <input type=\"text\" class=\"form-control\" id=\"pseudo\" name=\"pseudo\">
+                            </div>
+                            <div class=\"mb-3\">
+                                <label for=\"email\" class=\"form-label\">Email</label>
+                                <input type=\"email\" class=\"form-control\" id=\"email\" name=\"email\" required>
+                            </div>
+                            <div class=\"mb-3\">
+                                <label for=\"password\" class=\"form-label\">Mot de passe</label>
+                                <input type=\"password\" class=\"form-control\" id=\"password\" name=\"password\" required>
+                            </div>
+                            <div class=\"mb-3\" id=\"confirmPasswordField\" style=\"display: none;\">
+                                <label for=\"confirmPassword\" class=\"form-label\">Confirmer le mot de passe</label>
+                                <input type=\"password\" class=\"form-control\" id=\"confirmPassword\" name=\"confirmPassword\">
+                            </div>
+                            <div class=\"d-grid\">
+                                <button type=\"submit\" class=\"btn btn-primary\">Se connecter</button>
+                            </div>
+                        </form>
+                        <p class=\"text-center mt-3\">
+                            <span id=\"switchText\">Pas encore de compte ?</span>
+                            <a href=\"#\" id=\"switchLink\">S'inscrire</a>
+                        </p>
+                    </div>
                 </div>
-                <div class=\"form-group\">
-                    <label for=\"email\">Email</label>
-                    <input type=\"email\" id=\"email\" name=\"email\" required>
-                </div>
-                <div class=\"form-group\">
-                    <label for=\"password\">Mot de passe</label>
-                    <input type=\"password\" id=\"password\" name=\"password\" required>
-                </div>
-                <div class=\"form-group\" id=\"confirmPasswordField\" style=\"display: none;\">
-                    <label for=\"confirmPassword\">Confirmer le mot de passe</label>
-                    <input type=\"password\" id=\"confirmPassword\" name=\"confirmPassword\">
-                </div>
-                <button type=\"submit\" class=\"auth-button\">Se connecter</button>
-            </form>
-            <p class=\"switch-text\">
-                <span id=\"switchText\">Pas encore de compte ?</span>
-                <a href=\"#\" id=\"switchLink\">S'inscrire</a>
-            </p>
+            </div>
         </div>
     </div>
 ";
@@ -223,7 +233,7 @@ class __TwigTemplate_cc4cc803dd5b4af5d216663859af6eee extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  169 => 19,  164 => 16,  151 => 15,  138 => 12,  133 => 11,  120 => 10,  107 => 7,  102 => 6,  89 => 5,  66 => 3,  43 => 1,);
+        return array (  174 => 24,  166 => 18,  153 => 17,  140 => 14,  134 => 12,  121 => 11,  108 => 8,  102 => 6,  89 => 5,  66 => 3,  43 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -233,42 +243,52 @@ class __TwigTemplate_cc4cc803dd5b4af5d216663859af6eee extends Template
 {% block title %}Connexion / Inscription{% endblock %}
 
 {% block stylesheets %}
-    <link rel=\"stylesheet\" href=\"{{ asset('css/app.css') }}\">
+    {{ parent() }}
+    <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css\" rel=\"stylesheet\">
     <link rel=\"stylesheet\" href=\"{{ asset('css/authenticate.css') }}\">
 {% endblock %}
 
 {% block javascripts %}
     {{ parent() }}
+    <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js\"></script>
     <script src=\"{{ asset('js/revertAuthenticate.js') }}\"></script>
 {% endblock %}
 
 {% block body %}
-    <div class=\"auth-container\">
-        <div class=\"auth-form-container\">
-            <h2 id=\"formTitle\">Connexion</h2>
-            <form id=\"authForm\" class=\"auth-form\" action=\"{{ path('app_login') }}\" method=\"post\">
-                <div class=\"form-group\" id=\"registerFields\" style=\"display: none;\">
-                    <label for=\"pseudo\">Pseudo</label>
-                    <input type=\"text\" id=\"pseudo\" name=\"pseudo\">
+    <div class=\"container\">
+        <div class=\"row justify-content-center align-items-center min-vh-100\">
+            <div class=\"col-md-6 col-lg-4\">
+                <div class=\"card shadow\">
+                    <div class=\"card-body\">
+                        <h2 class=\"card-title text-center mb-4\" id=\"formTitle\">Connexion</h2>
+                        <form id=\"authForm\" action=\"{{ path('app_login') }}\" method=\"post\">
+                            <div class=\"mb-3\" id=\"registerFields\" style=\"display: none;\">
+                                <label for=\"pseudo\" class=\"form-label\">Pseudo</label>
+                                <input type=\"text\" class=\"form-control\" id=\"pseudo\" name=\"pseudo\">
+                            </div>
+                            <div class=\"mb-3\">
+                                <label for=\"email\" class=\"form-label\">Email</label>
+                                <input type=\"email\" class=\"form-control\" id=\"email\" name=\"email\" required>
+                            </div>
+                            <div class=\"mb-3\">
+                                <label for=\"password\" class=\"form-label\">Mot de passe</label>
+                                <input type=\"password\" class=\"form-control\" id=\"password\" name=\"password\" required>
+                            </div>
+                            <div class=\"mb-3\" id=\"confirmPasswordField\" style=\"display: none;\">
+                                <label for=\"confirmPassword\" class=\"form-label\">Confirmer le mot de passe</label>
+                                <input type=\"password\" class=\"form-control\" id=\"confirmPassword\" name=\"confirmPassword\">
+                            </div>
+                            <div class=\"d-grid\">
+                                <button type=\"submit\" class=\"btn btn-primary\">Se connecter</button>
+                            </div>
+                        </form>
+                        <p class=\"text-center mt-3\">
+                            <span id=\"switchText\">Pas encore de compte ?</span>
+                            <a href=\"#\" id=\"switchLink\">S'inscrire</a>
+                        </p>
+                    </div>
                 </div>
-                <div class=\"form-group\">
-                    <label for=\"email\">Email</label>
-                    <input type=\"email\" id=\"email\" name=\"email\" required>
-                </div>
-                <div class=\"form-group\">
-                    <label for=\"password\">Mot de passe</label>
-                    <input type=\"password\" id=\"password\" name=\"password\" required>
-                </div>
-                <div class=\"form-group\" id=\"confirmPasswordField\" style=\"display: none;\">
-                    <label for=\"confirmPassword\">Confirmer le mot de passe</label>
-                    <input type=\"password\" id=\"confirmPassword\" name=\"confirmPassword\">
-                </div>
-                <button type=\"submit\" class=\"auth-button\">Se connecter</button>
-            </form>
-            <p class=\"switch-text\">
-                <span id=\"switchText\">Pas encore de compte ?</span>
-                <a href=\"#\" id=\"switchLink\">S'inscrire</a>
-            </p>
+            </div>
         </div>
     </div>
 {% endblock %}", "login_sign_up/index.html.twig", "C:\\Users\\Maxime\\symfonyPjs\\pj1\\templates\\login_sign_up\\index.html.twig");

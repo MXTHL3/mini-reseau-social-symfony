@@ -24,6 +24,9 @@ class Users
     #[ORM\Column(length: 255)]
     private ?string $pwd = null;
 
+    #[ORM\Column]
+    private ?bool $isAdmin = null;
+
     /**
      * @var Collection<int, Posts>
      */
@@ -79,6 +82,18 @@ class Users
     public function setPwd(string $pwd): static
     {
         $this->pwd = $pwd;
+
+        return $this;
+    }
+
+    public function getIsAdmin(): ?bool
+    {
+        return $this->isAdmin;
+    }
+
+    public function setIsAdmin(bool $isAdmin): static
+    {
+        $this->isAdmin = $isAdmin;
 
         return $this;
     }

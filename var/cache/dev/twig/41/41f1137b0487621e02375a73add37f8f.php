@@ -99,19 +99,12 @@ class __TwigTemplate_6475828456c4c63f3d7e3eb7c21e6750 extends Template
 
         // line 6
         yield "    ";
-        yield $this->extensions['Symfony\WebpackEncoreBundle\Twig\EntryFilesTwigExtension']->renderWebpackLinkTags("app");
+        yield from $this->yieldParentBlock("stylesheets", $context, $blocks);
         yield "
-    <link rel=\"stylesheet\" href=\"";
-        // line 7
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("css/app.css"), "html", null, true);
-        yield "\">
+    <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css\" rel=\"stylesheet\">
     <link rel=\"stylesheet\" href=\"";
         // line 8
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("css/all_posts.css"), "html", null, true);
-        yield "\">
-    <link rel=\"stylesheet\" href=\"";
-        // line 9
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("css/search.css"), "html", null, true);
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("css/app.css"), "html", null, true);
         yield "\">
 ";
         
@@ -123,7 +116,7 @@ class __TwigTemplate_6475828456c4c63f3d7e3eb7c21e6750 extends Template
         yield from [];
     }
 
-    // line 12
+    // line 11
     /**
      * @return iterable<null|scalar|\Stringable>
      */
@@ -136,54 +129,55 @@ class __TwigTemplate_6475828456c4c63f3d7e3eb7c21e6750 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
+        // line 12
+        yield "    <div class=\"container mt-5\">
+        <h1 class=\"mb-4\">@";
         // line 13
-        yield "    <div class=\"container\">
-        <h1>@";
-        // line 14
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["user_session"]) || array_key_exists("user_session", $context) ? $context["user_session"] : (function () { throw new RuntimeError('Variable "user_session" does not exist.', 14, $this->source); })()), "user_name", [], "any", false, false, false, 14), "html", null, true);
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["user_session"]) || array_key_exists("user_session", $context) ? $context["user_session"] : (function () { throw new RuntimeError('Variable "user_session" does not exist.', 13, $this->source); })()), "user_name", [], "any", false, false, false, 13), "html", null, true);
         yield "</h1>
-    </div>
-    <div class=\"container\">
+
         ";
-        // line 17
+        // line 15
         $context['_parent'] = $context;
-        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["posts"]) || array_key_exists("posts", $context) ? $context["posts"] : (function () { throw new RuntimeError('Variable "posts" does not exist.', 17, $this->source); })()));
+        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["posts"]) || array_key_exists("posts", $context) ? $context["posts"] : (function () { throw new RuntimeError('Variable "posts" does not exist.', 15, $this->source); })()));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["key"] => $context["p"]) {
+            // line 16
+            yield "            <div class=\"card mb-3\">
+                <div class=\"card-body\">
+                    <h6 class=\"card-subtitle mb-2 text-muted\">";
             // line 18
-            yield "            <div class=\"post\">
-                <div class=\"date\">";
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["p"], "creationDate", [], "any", false, false, false, 18), "html", null, true);
+            yield "</h6>
+                    <p class=\"card-text\">";
             // line 19
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["p"], "creationDate", [], "any", false, false, false, 19), "html", null, true);
-            yield "</div>
-                <div class=\"content\">";
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["p"], "content", [], "any", false, false, false, 19), "html", null, true);
+            yield "</p>
+                    ";
             // line 20
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["p"], "content", [], "any", false, false, false, 20), "html", null, true);
-            yield "</div>
-                ";
-            // line 21
-            if ((CoreExtension::getAttribute($this->env, $this->source, $context["p"], "creatorId", [], "any", false, false, false, 21) == CoreExtension::getAttribute($this->env, $this->source, (isset($context["user_session"]) || array_key_exists("user_session", $context) ? $context["user_session"] : (function () { throw new RuntimeError('Variable "user_session" does not exist.', 21, $this->source); })()), "user_id", [], "any", false, false, false, 21))) {
-                // line 22
-                yield "                    <form action=\"";
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_delete_action", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["p"], "postId", [], "any", false, false, false, 22)]), "html", null, true);
-                yield "\" method=\"POST\" style=\"display: inline;\">
-                        <input type=\"hidden\" name=\"_method\" value=\"DELETE\">
-                        <input type=\"hidden\" name=\"_csrf_token\" value=\"";
-                // line 24
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken(("delete" . CoreExtension::getAttribute($this->env, $this->source, $context["p"], "postId", [], "any", false, false, false, 24))), "html", null, true);
+            if ((CoreExtension::getAttribute($this->env, $this->source, $context["p"], "creatorId", [], "any", false, false, false, 20) == CoreExtension::getAttribute($this->env, $this->source, (isset($context["user_session"]) || array_key_exists("user_session", $context) ? $context["user_session"] : (function () { throw new RuntimeError('Variable "user_session" does not exist.', 20, $this->source); })()), "user_id", [], "any", false, false, false, 20))) {
+                // line 21
+                yield "                        <form action=\"";
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_delete_action", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["p"], "postId", [], "any", false, false, false, 21)]), "html", null, true);
+                yield "\" method=\"POST\">
+                            <input type=\"hidden\" name=\"_method\" value=\"DELETE\">
+                            <input type=\"hidden\" name=\"_csrf_token\" value=\"";
+                // line 23
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken(("delete" . CoreExtension::getAttribute($this->env, $this->source, $context["p"], "postId", [], "any", false, false, false, 23))), "html", null, true);
                 yield "\">
-                        <button type=\"submit\" class=\"btn btn-danger btn-sm\">Supprimer</button>
-                    </form>
-                ";
+                            <button type=\"submit\" class=\"btn btn-danger btn-sm\">Supprimer</button>
+                        </form>
+                    ";
             }
-            // line 28
-            yield "            </div>
+            // line 27
+            yield "                </div>
+            </div>
         ";
             $context['_iterated'] = true;
         }
         if (!$context['_iterated']) {
             // line 30
-            yield "            <p class=\"no-posts\">Aucun post disponible.</p>
+            yield "            <p class=\"text-muted\">Aucun post disponible.</p>
         ";
         }
         $_parent = $context['_parent'];
@@ -191,9 +185,12 @@ class __TwigTemplate_6475828456c4c63f3d7e3eb7c21e6750 extends Template
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 32
         yield "    </div>
-    <div class=\"search-container\">
-        <input type=\"text\" placeholder=\"Rechercher...\" class=\"search-input\">
-        <button type=\"submit\" class=\"search-button\">🔍</button>
+
+    <div class=\"position-fixed top-0 end-0 m-3\">
+        <div class=\"input-group\">
+            <input type=\"text\" class=\"form-control\" placeholder=\"Rechercher...\">
+            <button class=\"btn btn-outline-secondary\" type=\"button\">🔍</button>
+        </div>
     </div>
 ";
         
@@ -226,7 +223,7 @@ class __TwigTemplate_6475828456c4c63f3d7e3eb7c21e6750 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  193 => 32,  186 => 30,  180 => 28,  173 => 24,  167 => 22,  165 => 21,  161 => 20,  157 => 19,  154 => 18,  149 => 17,  143 => 14,  140 => 13,  127 => 12,  114 => 9,  110 => 8,  106 => 7,  101 => 6,  88 => 5,  65 => 3,  42 => 1,);
+        return array (  187 => 32,  180 => 30,  173 => 27,  166 => 23,  160 => 21,  158 => 20,  154 => 19,  150 => 18,  146 => 16,  141 => 15,  136 => 13,  133 => 12,  120 => 11,  107 => 8,  101 => 6,  88 => 5,  65 => 3,  42 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -236,38 +233,40 @@ class __TwigTemplate_6475828456c4c63f3d7e3eb7c21e6750 extends Template
 {% block title %}Profil{% endblock %}
 
 {% block stylesheets %}
-    {{ encore_entry_link_tags('app') }}
+    {{ parent() }}
+    <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css\" rel=\"stylesheet\">
     <link rel=\"stylesheet\" href=\"{{ asset('css/app.css') }}\">
-    <link rel=\"stylesheet\" href=\"{{ asset('css/all_posts.css') }}\">
-    <link rel=\"stylesheet\" href=\"{{ asset('css/search.css') }}\">
 {% endblock %}
 
 {% block body %}
-    <div class=\"container\">
-        <h1>@{{ user_session.user_name }}</h1>
-    </div>
-    <div class=\"container\">
+    <div class=\"container mt-5\">
+        <h1 class=\"mb-4\">@{{ user_session.user_name }}</h1>
+
         {% for key, p in posts %}
-            <div class=\"post\">
-                <div class=\"date\">{{ p.creationDate }}</div>
-                <div class=\"content\">{{ p.content }}</div>
-                {% if p.creatorId == user_session.user_id %}
-                    <form action=\"{{ path('app_delete_action', { 'id': p.postId }) }}\" method=\"POST\" style=\"display: inline;\">
-                        <input type=\"hidden\" name=\"_method\" value=\"DELETE\">
-                        <input type=\"hidden\" name=\"_csrf_token\" value=\"{{ csrf_token('delete' ~ p.postId) }}\">
-                        <button type=\"submit\" class=\"btn btn-danger btn-sm\">Supprimer</button>
-                    </form>
-                {% endif %}
+            <div class=\"card mb-3\">
+                <div class=\"card-body\">
+                    <h6 class=\"card-subtitle mb-2 text-muted\">{{ p.creationDate }}</h6>
+                    <p class=\"card-text\">{{ p.content }}</p>
+                    {% if p.creatorId == user_session.user_id %}
+                        <form action=\"{{ path('app_delete_action', { 'id': p.postId }) }}\" method=\"POST\">
+                            <input type=\"hidden\" name=\"_method\" value=\"DELETE\">
+                            <input type=\"hidden\" name=\"_csrf_token\" value=\"{{ csrf_token('delete' ~ p.postId) }}\">
+                            <button type=\"submit\" class=\"btn btn-danger btn-sm\">Supprimer</button>
+                        </form>
+                    {% endif %}
+                </div>
             </div>
         {% else %}
-            <p class=\"no-posts\">Aucun post disponible.</p>
+            <p class=\"text-muted\">Aucun post disponible.</p>
         {% endfor %}
     </div>
-    <div class=\"search-container\">
-        <input type=\"text\" placeholder=\"Rechercher...\" class=\"search-input\">
-        <button type=\"submit\" class=\"search-button\">🔍</button>
+
+    <div class=\"position-fixed top-0 end-0 m-3\">
+        <div class=\"input-group\">
+            <input type=\"text\" class=\"form-control\" placeholder=\"Rechercher...\">
+            <button class=\"btn btn-outline-secondary\" type=\"button\">🔍</button>
+        </div>
     </div>
-{% endblock %}
-", "profile/index.html.twig", "C:\\Users\\Maxime\\symfonyPjs\\pj1\\templates\\profile\\index.html.twig");
+{% endblock %}", "profile/index.html.twig", "C:\\Users\\Maxime\\symfonyPjs\\pj1\\templates\\profile\\index.html.twig");
     }
 }

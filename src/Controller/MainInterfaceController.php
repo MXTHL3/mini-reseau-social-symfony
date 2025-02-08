@@ -43,6 +43,7 @@ class MainInterfaceController extends AbstractController
                 'creatorName' => $post->getCreator()->getName(),
                 'creationDate' => $post->getCreationDate()->format('Y-m-d H:i:s'),
                 'content' => $post->getContent(),
+                'tag' => $post->getTag(),
                 'isLikedByTheUser' => (bool) $like,
             ];
         }, $allPostsArray);
@@ -68,6 +69,7 @@ class MainInterfaceController extends AbstractController
         $post->setCreator($theUser);
         $post->setCreationDate(new \DateTime());
         $post->setContent($postText);
+        $post->setTag($postTag);
 
         $entityManager->persist($post);
         $entityManager->flush();

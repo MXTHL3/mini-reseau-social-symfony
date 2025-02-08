@@ -26,6 +26,9 @@ class Posts
     #[ORM\Column(length: 255)]
     private ?string $content = null;
 
+    #[ORM\Column(length: 30)]
+    private ?string $tag = null;
+
     /**
      * @var Collection<int, Likes>
      */
@@ -74,6 +77,18 @@ class Posts
     public function setContent(string $content): static
     {
         $this->content = $content;
+
+        return $this;
+    }
+
+    public function getTag(): ?string
+    {
+        return $this->tag;
+    }
+
+    public function setTag(string $tag): static
+    {
+        $this->tag = $tag;
 
         return $this;
     }

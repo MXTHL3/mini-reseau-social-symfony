@@ -4,13 +4,14 @@ namespace App\DataFixtures;
 
 use App\Entity\Likes;
 use App\Entity\Posts;
+use App\Entity\Reports;
 use App\Entity\Users;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
 class AppFixtures extends Fixture
 {
-    function generateSecurePassword($length = 8) {
+    function generateSecurePassword($length = 8): string {
         if ($length < 8) {
             $length = 8;
         }
@@ -41,12 +42,20 @@ class AppFixtures extends Fixture
     {
         $usersArray = [];
         for ($i = 1; $i <= 20; $i++) {
+            $domains = ['gmail.com', 'mail.com', 'outlook.com'];
+            $randomDomain = $domains[array_rand($domains)];
+            if ($i == 1 || $i == 2) {
+                $isAdminValue = true;
+            }
+            else {
+                $isAdminValue = false;
+            }
+
             $users = new Users();
             $users->setName('user'.$i);
-            $domains = ['gmail', 'mail', 'outlook'];
-            $randomDomain = $domains[array_rand($domains)];
-            $users->setMailAddress('test'.$i.'@'.$randomDomain.'.com');
+            $users->setMailAddress('test'.$i.'@'.$randomDomain);
             $users->setPwd($this->generateSecurePassword());
+            $users->setIsAdmin($isAdminValue);
             $usersArray[] = $users;
             $manager->persist($users);
             $manager->flush();
@@ -54,10 +63,14 @@ class AppFixtures extends Fixture
 
         $postsArray = [];
         for ($i = 1; $i <= 50; $i++) {
+            $tags = ['foot', 'bière', 'France', 'USA', 'guerre', 'musique', 'femmes', 'mode'];
+            $randomTag = $tags[array_rand($tags)];
+
             $posts = new Posts();
             $posts->setCreator($usersArray[array_rand($usersArray)]);
             $posts->setCreationDate(new \DateTime());
             $posts->setContent("Lorem ipsum $i");
+            $posts->setTag($randomTag);
             $postsArray[] = $posts;
             $manager->persist($posts);
             $manager->flush();
@@ -68,6 +81,14 @@ class AppFixtures extends Fixture
             $likes->setThePost($postsArray[array_rand($postsArray)]);
             $likes->setTheUser($usersArray[array_rand($usersArray)]);
             $manager->persist($likes);
+            $manager->flush();
+        }
+
+        for ($i = 1; $i <= 7; $i++) {
+            $reports = new Reports();
+            $reports->setReportedPost($postsArray[array_rand($postsArray)]);
+            $reports->setReporter($usersArray[array_rand($usersArray)]);
+            $manager->persist($reports);
             $manager->flush();
         }
     }
