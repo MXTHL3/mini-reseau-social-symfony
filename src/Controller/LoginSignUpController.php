@@ -20,6 +20,7 @@ class LoginSignUpController extends AbstractController
         $this->requestStack = $requestStack;
     }
 
+    /*
     #[Route('/portal', name: 'app_login_sign_up')]
     public function index(): Response
     {
@@ -98,7 +99,7 @@ class LoginSignUpController extends AbstractController
         $this->addFlash('success', 'Vous avez été déconnecté');
         return $this->redirectToRoute('app_login_sign_up');
     }
-
+    */
 
 
 }

@@ -8,19 +8,18 @@
 return [
     false, // $matchHost
     [ // $staticRoutes
-        '/_wdt/styles.css' => [[['_route' => '_wdt_stylesheet', '_controller' => 'web_profiler.controller.profiler::toolbarStylesheetAction'], null, null, null, false, false, null]],
+        '/_wdt/styles' => [[['_route' => '_wdt_stylesheet', '_controller' => 'web_profiler.controller.profiler::toolbarStylesheetAction'], null, null, null, false, false, null]],
         '/_profiler' => [[['_route' => '_profiler_home', '_controller' => 'web_profiler.controller.profiler::homeAction'], null, null, null, true, false, null]],
         '/_profiler/search' => [[['_route' => '_profiler_search', '_controller' => 'web_profiler.controller.profiler::searchAction'], null, null, null, false, false, null]],
         '/_profiler/search_bar' => [[['_route' => '_profiler_search_bar', '_controller' => 'web_profiler.controller.profiler::searchBarAction'], null, null, null, false, false, null]],
         '/_profiler/phpinfo' => [[['_route' => '_profiler_phpinfo', '_controller' => 'web_profiler.controller.profiler::phpinfoAction'], null, null, null, false, false, null]],
         '/_profiler/xdebug' => [[['_route' => '_profiler_xdebug', '_controller' => 'web_profiler.controller.profiler::xdebugAction'], null, null, null, false, false, null]],
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
-        '/portal' => [[['_route' => 'app_login_sign_up', '_controller' => 'App\\Controller\\LoginSignUpController::index'], null, null, null, false, false, null]],
-        '/register' => [[['_route' => 'app_register', '_controller' => 'App\\Controller\\LoginSignUpController::register'], null, ['POST' => 0], null, false, false, null]],
-        '/login' => [[['_route' => 'app_login', '_controller' => 'App\\Controller\\LoginSignUpController::login'], null, ['POST' => 0], null, false, false, null]],
-        '/logout' => [[['_route' => 'app_logout', '_controller' => 'App\\Controller\\LoginSignUpController::logout'], null, null, null, false, false, null]],
         '/' => [[['_route' => 'app_main_interface', '_controller' => 'App\\Controller\\MainInterfaceController::mainPage'], null, null, null, false, false, null]],
         '/post_action' => [[['_route' => 'app_post_interface_action', '_controller' => 'App\\Controller\\MainInterfaceController::postAction'], null, ['POST' => 0], null, false, false, null]],
+        '/register' => [[['_route' => 'app_register', '_controller' => 'App\\Controller\\RegistrationController::register'], null, null, null, false, false, null]],
+        '/login' => [[['_route' => 'app_login', '_controller' => 'App\\Controller\\SecurityController::login'], null, null, null, false, false, null]],
+        '/logout' => [[['_route' => 'app_logout', '_controller' => 'App\\Controller\\SecurityController::logout'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'

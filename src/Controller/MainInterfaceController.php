@@ -40,7 +40,7 @@ class MainInterfaceController extends AbstractController
             return [
                 'postId' => $post->getId(),
                 'creatorId' => $post->getCreator()->getId(),
-                'creatorName' => $post->getCreator()->getName(),
+                'creatorName' => $post->getCreator()->getUsername(),
                 'creationDate' => $post->getCreationDate()->format('Y-m-d H:i:s'),
                 'content' => $post->getContent(),
                 'tag' => $post->getTag(),

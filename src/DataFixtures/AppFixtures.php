@@ -45,17 +45,17 @@ class AppFixtures extends Fixture
             $domains = ['gmail.com', 'mail.com', 'outlook.com'];
             $randomDomain = $domains[array_rand($domains)];
             if ($i == 1 || $i == 2) {
-                $isAdminValue = true;
+                $isAdminValue = ['ROLE_ADMIN', 'ROLE_USER'];
             }
             else {
-                $isAdminValue = false;
+                $isAdminValue = ['ROLE_USER'];
             }
 
             $users = new Users();
-            $users->setName('user'.$i);
+            $users->setUsername('user'.$i);
             $users->setMailAddress('test'.$i.'@'.$randomDomain);
-            $users->setPwd($this->generateSecurePassword());
-            $users->setIsAdmin($isAdminValue);
+            $users->setRoles($isAdminValue);
+            $users->setPassword($this->generateSecurePassword());
             $usersArray[] = $users;
             $manager->persist($users);
             $manager->flush();
