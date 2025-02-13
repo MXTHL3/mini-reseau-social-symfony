@@ -3,12 +3,8 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-    <div class="container">
+    <div class="container w-50">
         <h1 class="my-4">Inscription</h1>
-
-        <div class="alert alert-danger" role="alert">
-            {{ form_errors(registrationForm) }}
-        </div>
 
         {{ form_start(registrationForm, { 'attr': {'class': 'needs-validation', 'novalidate': 'novalidate'} }) }}
         <div class="mb-3">
@@ -44,7 +40,7 @@
 
         <p class="text-center mt-3">
             <span>Vous avez déjà un compte ?</span>
-            <a href="/login">S'inscrire</a>
+            <a href="/login">Se connecter</a>
         </p>
     </div>
 {% endblock %}

@@ -97,8 +97,8 @@ class __TwigTemplate_ef77f4c970c11db431e5828081b65863 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        yield "    <div class=\"container\">
-        <h1 class=\"h3 mb-4 font-weight-normal text-center\">Connexion</h1>
+        yield "    <div class=\"container w-50\">
+        <h1 class=\"my-4\">Connexion</h1>
 
         ";
         // line 9
@@ -149,7 +149,7 @@ class __TwigTemplate_ef77f4c970c11db431e5828081b65863 extends Template
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken("authenticate"), "html", null, true);
         yield "\">
 
-            <button class=\"btn btn-lg btn-primary w-100\" type=\"submit\">
+            <button class=\"btn btn-primary\" type=\"submit\">
                 Valider
             </button>
         </form>
@@ -200,8 +200,8 @@ class __TwigTemplate_ef77f4c970c11db431e5828081b65863 extends Template
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
-    <div class=\"container\">
-        <h1 class=\"h3 mb-4 font-weight-normal text-center\">Connexion</h1>
+    <div class=\"container w-50\">
+        <h1 class=\"my-4\">Connexion</h1>
 
         {% if error %}
             <div class=\"alert alert-danger\" role=\"alert\">
@@ -228,7 +228,7 @@ class __TwigTemplate_ef77f4c970c11db431e5828081b65863 extends Template
 
             <input type=\"hidden\" name=\"_csrf_token\" value=\"{{ csrf_token('authenticate') }}\">
 
-            <button class=\"btn btn-lg btn-primary w-100\" type=\"submit\">
+            <button class=\"btn btn-primary\" type=\"submit\">
                 Valider
             </button>
         </form>
