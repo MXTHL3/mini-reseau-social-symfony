@@ -43,7 +43,7 @@ class LoginSignUpController extends AbstractController
             $errors[] = 'Format d\'email invalide';
         }
 
-        if (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[{}()%&\-_])[A-Za-z\d{}()%&\-_!?.]{8,}$/', $password)) {
+        if (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[{}()%&\-_!?.])[A-Za-z\d{}()%&\-_!?.]{8,}$/', $password)) {
             $errors[] = 'Le mot de passe doit contenir au moins 8 caractères, incluant une minuscule, une majuscule, un chiffre et un caractère spécial parmi {}()%&-_!?.';
         }
 
@@ -58,6 +58,7 @@ class LoginSignUpController extends AbstractController
         $user->setName($pseudo);
         $user->setMailAddress($email);
         $user->setPwd($password);
+        $user->setIsAdmin(false);
 
         $entityManager->persist($user);
         $entityManager->flush();

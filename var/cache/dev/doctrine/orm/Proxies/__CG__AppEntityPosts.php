@@ -27,11 +27,13 @@ class Posts extends \App\Entity\Posts implements \Doctrine\ORM\Proxy\InternalPro
         "\0".parent::class."\0".'creator' => [parent::class, 'creator', null],
         "\0".parent::class."\0".'id' => [parent::class, 'id', null],
         "\0".parent::class."\0".'likes' => [parent::class, 'likes', null],
+        "\0".parent::class."\0".'tag' => [parent::class, 'tag', null],
         'content' => [parent::class, 'content', null],
         'creation_date' => [parent::class, 'creation_date', null],
         'creator' => [parent::class, 'creator', null],
         'id' => [parent::class, 'id', null],
         'likes' => [parent::class, 'likes', null],
+        'tag' => [parent::class, 'tag', null],
     ];
 
     public function __isInitialized(): bool
